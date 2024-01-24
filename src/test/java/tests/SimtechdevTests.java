@@ -1,6 +1,6 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,15 +21,15 @@ public class SimtechdevTests extends TestBase {
     MainMenu menu = new MainMenu();
     SearchResultPage search = new SearchResultPage();
 
-    @BeforeAll
-    public static void setUp() {
-        open("https://simtechdev.ru/");
-    }
+    @BeforeEach
+    public void setUp() {
+        open("");
+   }
 
     @ValueSource(strings = {
             "Решения", "Услуги", "CS-Cart", "Инфраструктура", "О компании", "Блог", "Helpdesk"
     })
-    @ParameterizedTest(name = "Отображение ссылок главного меню в хедере")
+    @ParameterizedTest(name = "Отображение ссылок главного меню в хедере {0}")
     @Tag("SMOKE")
     public void mainMenuLinksTest (String menuLinks) {
         menu.checkMenuLinks(menuLinks);
@@ -52,7 +52,7 @@ public class SimtechdevTests extends TestBase {
         );
     }
 
-    @MethodSource
+    @MethodSource("searchOnBlogPageTest")
     @ParameterizedTest(name = "Поиск {1} на странице Блог")
     @Tag("SMOKE")
     public void searchOnBlogPageTest (String category, String searchQuery) {
