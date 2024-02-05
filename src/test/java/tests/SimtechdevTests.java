@@ -1,6 +1,6 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,18 +13,12 @@ import pages.components.MainMenu;
 
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.Selenide.open;
 
 @DisplayName("Тесты для сайта SimtechDev")
 public class SimtechdevTests extends TestBase {
 
     MainMenu menu = new MainMenu();
     SearchResultPage search = new SearchResultPage();
-
-    @BeforeEach
-    public void setUp() {
-        open("");
-   }
 
     @ValueSource(strings = {
             "Решения", "Услуги", "CS-Cart", "Инфраструктура", "О компании", "Блог", "Helpdesk"
