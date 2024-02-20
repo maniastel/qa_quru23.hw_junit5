@@ -18,6 +18,8 @@ public class TestBase {
         Configuration.browserVersion = webDriverConfig.getBrowserVersion();
         Configuration.browserSize = webDriverConfig.getBrowserSize();
         Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 3000;
+
         if (!"".equals(webDriverConfig.getRemoteWebDriver())) {
             Configuration.remote = webDriverConfig.getRemoteWebDriver();
         }
